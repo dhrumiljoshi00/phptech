@@ -1,0 +1,49 @@
+<form id="stateForm">
+    <label for="country">Select Country:</label>
+    <select id="country" name="country">
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <!-- Add more countries as needed -->
+    </select>
+    <br>
+    <label for="state">Select State:</label>
+    <select id="state" name="state">
+        <!-- State options will be dynamically populated via Ajax -->
+    </select>
+</form>
+
+$(document).ready(function(){
+    $('#country').change(function(){
+        var country = $(this).val();
+        $.ajax({
+            url: 'getStates.php', // Server-side script to handle the request
+            method: 'POST',
+            data: { country: country },
+            dataType: 'json',
+            success: function(response){
+                $('#state').html(response.html);
+            }
+        });
+    });
+});
+
+
+<?php
+// Sample state data (you should retrieve this from a database)
+$stateData = array(
+    'USA' => array('New York', 'California', 'Texas'),
+    'Canada' => array('Ontario', 'Quebec', 'British Columbia')
+);
+
+$country = $_POST['country'];
+$html = '<option value="">Select State</option>';
+if (isset($stateData[$country])) {
+    foreach ($stateData[$country] as $state) {
+        $html .= "<option value='$state'>$state</option>";
+    }
+}
+
+echo json_encode(['html' => $html]);
+?>
+
+

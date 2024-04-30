@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Row Coloring</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Select even <tr> elements and change their background color to green
+  $('table tr:nth-child(even)').css('background-color', 'green');
+  
+  // Select odd <tr> elements and change their background color to blue
+  $('table tr:nth-child(odd)').css('background-color', 'blue');
+});
+</script>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <td>Row 1</td>
+    <td>Content</td>
+  </tr>
+  <tr>
+    <td>Row 2</td>
+    <td>Content</td>
+  </tr>
+  <tr>
+    <td>Row 3</td>
+    <td>Content</td>
+  </tr>
+  <tr>
+    <td>Row 4</td>
+    <td>Content</td>
+  </tr>
+</table>
+</body>
+</html>

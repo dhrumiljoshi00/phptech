@@ -1,0 +1,39 @@
+//Fade In and Fade Out:
+
+$(document).ready(function(){
+  $('#fadeInButton').click(function(){
+    $('#elementToAnimate').fadeIn('slow');
+  });
+
+  $('#fadeOutButton').click(function(){
+    $('#elementToAnimate').fadeOut('slow');
+  });
+});
+
+
+//Slide Up and Slide Down:
+
+$(document).ready(function(){
+  $('#slideUpButton').click(function(){
+    $('#elementToAnimate').slideUp('slow');
+  });
+
+  $('#slideDownButton').click(function(){
+    $('#elementToAnimate').slideDown('slow');
+  });
+});
+
+//Custom Animation with .animate():
+
+$(document).ready(function(){
+  $('#customAnimationButton').click(function(){
+    $('#elementToAnimate').animate({
+      opacity: '0.25',
+      width: '50%',
+      height: '50%'
+    }, 'slow');
+  });
+});
+
+//fadeIn(), fadeOut(), slideUp(), and slideDown() methods animate the element's opacity and height.
+//.animate() method allows you to specify custom CSS properties and values to animate.
